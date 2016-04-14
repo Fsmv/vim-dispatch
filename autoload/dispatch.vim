@@ -571,7 +571,7 @@ function! dispatch#compile_command(bang, args, count) abort
   if &autowrite || &autowriteall
     silent! wall
   endif
-  cclose
+"cclose
   let request.file = tempname()
   let &errorfile = request.file
 
@@ -794,7 +794,8 @@ function! dispatch#complete(file) abort
     endif
     echo label request.command
     if !request.background
-      call s:cgetfile(request, 0, -status)
+      "call s:cgetfile(request, 0, -status)
+      call s:cgetfile(request, 0, 1)
       redraw
     endif
   endif
